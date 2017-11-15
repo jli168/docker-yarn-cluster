@@ -17,7 +17,8 @@ service sshd start
 # and we only need to start-dfs and start-yarn from namenode!
 # ref: https://www.edureka.co/blog/hadoop-cluster-configuration-files/
 if [[ $1 = "-namenode" || $2 = "-namenode" ]]; then
-    cat $HADOOP_PREFIX/slaves > $HADOOP_PREFIX/etc/hadoop/slaves
+    # override slaves list in namenode
+    cat /var/tmp/slaves > $HADOOP_PREFIX/etc/hadoop/slaves
     $HADOOP_PREFIX/sbin/start-dfs.sh
     $HADOOP_PREFIX/sbin/start-yarn.sh
 fi

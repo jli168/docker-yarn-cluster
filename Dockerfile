@@ -68,10 +68,6 @@ ADD ssh_config /root/.ssh/config
 RUN chmod 600 /root/.ssh/config
 RUN chown root:root /root/.ssh/config
 
-ADD slaves $HADOOP_PREFIX/slaves
-RUN chmod 600 $HADOOP_PREFIX/slaves
-RUN chown root:root $HADOOP_PREFIX/slaves
-
 ADD wordcount.sh $HADOOP_PREFIX/wordcount.sh
 RUN chmod 700 $HADOOP_PREFIX/wordcount.sh
 RUN chown root:root $HADOOP_PREFIX/wordcount.sh

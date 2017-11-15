@@ -16,6 +16,8 @@ services:
         - "8088:8088"
         - "50090:50090"
       command: "/etc/bootstrap.sh -d -namenode"
+      volumes:
+        - ${PWD}/slaves:/var/tmp/slaves
       networks:
         yarn-network:
             ipv4_address: 172.25.0.3
